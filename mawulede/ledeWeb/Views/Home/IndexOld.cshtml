@@ -1,0 +1,195 @@
+﻿<style>
+    mag {
+        cursor: pointer;
+    }
+</style>
+<section class="content">
+
+    <!-- /.row -->
+    <!-- Main row -->
+    <div class="row">
+        <!-- Left col -->
+        <div class="col-md-8">
+            <!-- MAP & BOX PANE -->
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Visitors Report</h3>
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <div class="col-md-12">
+                        <div class="panel with-nav-tabs panel-primary">
+                            <div class="panel-heading">
+                                <ul class="nav nav-tabs">
+                                    <li class="active col-md-6" style="color:#000"><a href="#tab1primary" data-toggle="tab">Now Showing</a></li>
+                                    <li class="col-md-6"><a href="#tab2primary" data-toggle="tab" style="color:#000">Coming Soon</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="panel-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="tab1primary">
+
+                                    </div>
+                                    <div class="tab-pane fade" id="tab2primary">Primary 2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+            <!-- /.row -->
+            <!-- TABLE: LATEST ORDERS -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Latest Bookings</h3>
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+
+                    <!--To be reverted soon-->
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                            <thead>
+                                <tr>
+                                    <th>Booking Number</th>
+                                    <th>Movie</th>
+                                    <th>Full Name</th>
+                                    <th>Date</th>
+                                    <th>Payment Method</th>
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                    <th>Amount</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="bookingDetails">
+                                @*<tr>
+                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                                        <td>Call of Duty IV</td>
+                                        <td><span class="label label-success">Shipped</span></td>
+                                        <td>
+                                            <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                                        </td>
+                                    </tr>*@
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    @*<a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>*@
+                    <a href="/bokings/AllBookings" class="btn btn-sm btn-default btn-flat pull-right">View All Bookings</a>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-4">
+            <!-- Info Boxes Style 2 -->
+            <div class="info-box bg-yellow">
+                <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Inventory</span>
+                    <span class="info-box-number">5,200</span>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 50%"></div>
+                    </div>
+                    <span class="progress-description">
+                        50% Increase in 30 Days
+                    </span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+            <div class="info-box bg-green">
+                <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Mentions</span>
+                    <span class="info-box-number">92,050</span>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 20%"></div>
+                    </div>
+                    <span class="progress-description">
+                        20% Increase in 30 Days
+                    </span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+            <div class="info-box bg-red">
+                <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Downloads</span>
+                    <span class="info-box-number">114,381</span>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 70%"></div>
+                    </div>
+                    <span class="progress-description">
+                        70% Increase in 30 Days
+                    </span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+            <div class="info-box bg-aqua">
+                <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Direct Messages</span>
+                    <span class="info-box-number">163,921</span>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                    <span class="progress-description">
+                        40% Increase in 30 Days
+                    </span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+            <!-- /.box -->
+            <!-- PRODUCT LIST -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Latest Registrations</h3>
+                    <div id="custDetails">
+                        @*<div class="user-block" >
+                                <img class="img-circle img-bordered-sm" src="~/Content/images/profile.jpg" />
+                                <span class="username">
+                                    <a href="#">Jonathan Burke Jr.</a>
+
+                                </span>
+                                <span class="description">Shared publicly - 7:30 PM today</span>
+                            </div>*@
+
+                    </div>
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <ul class="products-list product-list-in-box" id="registrations">
+
+                        <!-- /.item -->
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer text-center">
+                    <a href="/users/users" class="uppercase">View All Registrations</a>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+<script src="~/Scripts/app/dashboardHome.js"></script>

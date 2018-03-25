@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ledeApi", "ledeApi\ledeApi.csproj", "{612492D5-964A-4575-80A6-C1F79D8D496E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ledeWeb", "ledeWeb\ledeWeb.csproj", "{F6C51259-85B3-46BC-B396-09A99DADAD81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ledeModels", "ledeModels\ledeModels.csproj", "{FC69C70B-1919-4AD8-9004-9EC5144322B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ledeHelpers", "ledeHelpers\ledeHelpers.csproj", "{8389A4C9-7BAC-4666-97E3-9E9B110EC200}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{612492D5-964A-4575-80A6-C1F79D8D496E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{612492D5-964A-4575-80A6-C1F79D8D496E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{612492D5-964A-4575-80A6-C1F79D8D496E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{612492D5-964A-4575-80A6-C1F79D8D496E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C51259-85B3-46BC-B396-09A99DADAD81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C51259-85B3-46BC-B396-09A99DADAD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C51259-85B3-46BC-B396-09A99DADAD81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C51259-85B3-46BC-B396-09A99DADAD81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC69C70B-1919-4AD8-9004-9EC5144322B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC69C70B-1919-4AD8-9004-9EC5144322B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC69C70B-1919-4AD8-9004-9EC5144322B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC69C70B-1919-4AD8-9004-9EC5144322B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8389A4C9-7BAC-4666-97E3-9E9B110EC200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8389A4C9-7BAC-4666-97E3-9E9B110EC200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8389A4C9-7BAC-4666-97E3-9E9B110EC200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8389A4C9-7BAC-4666-97E3-9E9B110EC200}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

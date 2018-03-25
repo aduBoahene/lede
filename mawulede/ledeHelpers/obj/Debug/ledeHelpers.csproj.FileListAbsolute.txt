@@ -1,0 +1,11 @@
+C:\Users\Patoo\Desktop\lede\ledeHelpers\obj\Debug\ledeHelpers.csprojResolveAssemblyReference.cache
+C:\Users\Patoo\Desktop\lede\ledeHelpers\bin\Debug\ledeHelpers.dll
+C:\Users\Patoo\Desktop\lede\ledeHelpers\bin\Debug\ledeHelpers.pdb
+C:\Users\Patoo\Desktop\lede\ledeHelpers\bin\Debug\ledeModels.dll
+C:\Users\Patoo\Desktop\lede\ledeHelpers\bin\Debug\Npgsql.dll
+C:\Users\Patoo\Desktop\lede\ledeHelpers\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Patoo\Desktop\lede\ledeHelpers\bin\Debug\ledeModels.pdb
+C:\Users\Patoo\Desktop\lede\ledeHelpers\bin\Debug\Npgsql.xml
+C:\Users\Patoo\Desktop\lede\ledeHelpers\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Patoo\Desktop\lede\ledeHelpers\obj\Debug\ledeHelpers.dll
+C:\Users\Patoo\Desktop\lede\ledeHelpers\obj\Debug\ledeHelpers.pdb

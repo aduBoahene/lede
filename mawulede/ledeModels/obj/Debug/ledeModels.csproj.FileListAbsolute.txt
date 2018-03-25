@@ -1,0 +1,5 @@
+C:\Users\Patoo\Desktop\lede\ledeModels\bin\Debug\ledeModels.dll
+C:\Users\Patoo\Desktop\lede\ledeModels\bin\Debug\ledeModels.pdb
+C:\Users\Patoo\Desktop\lede\ledeModels\obj\Debug\ledeModels.csprojResolveAssemblyReference.cache
+C:\Users\Patoo\Desktop\lede\ledeModels\obj\Debug\ledeModels.dll
+C:\Users\Patoo\Desktop\lede\ledeModels\obj\Debug\ledeModels.pdb
