@@ -134,6 +134,64 @@ namespace ledeHelpers
             }
         }
 
+        public List<Promotion> GetAllPromotions(int houseId)
+        {
+            using (var con = new NpgsqlConnection(_Ycon))
+            {
+                var results = new List<Promotion>();
+
+                var cmd = new NpgsqlCommand("\"getallpromotions\"", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new NpgsqlParameter("reqHouseId", NpgsqlTypes.NpgsqlDbType.Integer));
+                cmd.Parameters[0].Value = houseId;
+
+                con.Open(); var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    results.Add(new Promotion
+                    {
+                        PromotionId = reader.GetFieldValue<int>(0),
+                        Name = reader.GetFieldValue<string>(1),
+                        HouseId = reader.GetFieldValue<int>(2),
+                        StartDate = reader.GetFieldValue<DateTime>(3),
+                        EndDate = reader.GetFieldValue<DateTime>(4),
+                        Description = reader.GetFieldValue<string>(5),
+
+                    });
+                }
+                con.Close(); con.Dispose();
+                return results;
+
+            }
+        }
+        public List<Payment> GetPaymentByHouse(int HouseId)
+        {
+            using (var con = new NpgsqlConnection(_Ycon))
+            {
+                var results = new List<Payment>();
+
+                var cmd = new NpgsqlCommand("\"getpaymentbyhouse\"", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new NpgsqlParameter("reqHouseId", NpgsqlTypes.NpgsqlDbType.Integer));
+                cmd.Parameters[0].Value = HouseId;
+
+                con.Open(); var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    results.Add(new Payment
+                    {
+                        PaymentId = reader.GetFieldValue<int>(0),
+                        Name = reader.GetFieldValue<string>(1)
+                    });
+                }
+                con.Close(); con.Dispose();
+                return results;
+
+            }
+        }
+
         public List<Movie> GetAllMovie(int houseId)
         {
             using (var con = new NpgsqlConnection(_Ycon))
@@ -152,14 +210,15 @@ namespace ledeHelpers
                     results.Add(new Movie
                     {
                         MovieId = reader.GetFieldValue<int>(0),
-                        Title = reader.GetFieldValue<string>(1),
-                        GenreName = reader.GetFieldValue<string>(2),
-                        Synopsis = reader.GetFieldValue<string>(3),
-                        PosterUrl = reader.GetFieldValue<string>(4),
-                        TrailerUrl = reader.GetFieldValue<string>(5),
-                        Amount = reader.GetFieldValue<string>(6),
-                        HouseName = reader.GetFieldValue<string>(7),
-                        ReleaseDate = reader.GetFieldValue<DateTime>(8)
+                        HouseId = reader.GetFieldValue<int>(1),
+                        Title = reader.GetFieldValue<string>(2),
+                        GenreName = reader.GetFieldValue<string>(3),
+                        Synopsis = reader.GetFieldValue<string>(4),
+                        PosterUrl = reader.GetFieldValue<string>(5),
+                        TrailerUrl = reader.GetFieldValue<string>(6),
+                        Amount = reader.GetFieldValue<string>(7),
+                        HouseName = reader.GetFieldValue<string>(8),
+                        ReleaseDate = reader.GetFieldValue<DateTime>(9)
                     });
                 }
                 con.Close(); con.Dispose();
@@ -360,6 +419,60 @@ namespace ledeHelpers
             return results;
         }
 
+        //post booking
+        public int PostBooking(PostBooking booking)
+        {
+            using (var con = new NpgsqlConnection(_Ycon))
+            {
+                int result;
+
+                var cmd = new NpgsqlCommand("\"submitbooking\"", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add(new NpgsqlParameter("reqMovieId", NpgsqlTypes.NpgsqlDbType.Integer));
+                cmd.Parameters[0].Value = booking.MovieId;
+
+                cmd.Parameters.Add(new NpgsqlParameter("reqBookDate", NpgsqlTypes.NpgsqlDbType.Timestamp));
+                //cmd.Parameters[1].Value = booking.BookingDate;
+                cmd.Parameters[1].Value = DateTime.Now;
+
+                cmd.Parameters.Add(new NpgsqlParameter("reqPaymentMethodId", NpgsqlTypes.NpgsqlDbType.Integer));
+                cmd.Parameters[2].Value = booking.PaymentMethodId;
+
+                cmd.Parameters.Add(new NpgsqlParameter("reqHouseId", NpgsqlTypes.NpgsqlDbType.Integer));
+                cmd.Parameters[3].Value = booking.HouseId;
+
+                cmd.Parameters.Add(new NpgsqlParameter("reqAmount", NpgsqlTypes.NpgsqlDbType.Integer));
+                cmd.Parameters[4].Value =booking.Amount;
+
+                cmd.Parameters.Add(new NpgsqlParameter("reqShowMomentId", NpgsqlTypes.NpgsqlDbType.Integer));
+                cmd.Parameters[5].Value = booking.ShowMomentId;
+
+                cmd.Parameters.Add(new NpgsqlParameter("reqCustomerId", NpgsqlTypes.NpgsqlDbType.Integer));
+                cmd.Parameters[6].Value = booking.CustomerId;
+
+
+                cmd.Parameters.Add(new NpgsqlParameter("reqBookingNum", NpgsqlTypes.NpgsqlDbType.Varchar));
+                //cmd.Parameters[7].Value = booking.BookingNumber;
+                cmd.Parameters[7].Value = randomStringToAdd();
+
+                con.Open();
+
+                result = Convert.ToInt32(cmd.ExecuteScalar());
+                con.Close();
+                con.Dispose();
+                return result;
+            }
+        }
+
+
+        private string randomStringToAdd()
+        {
+            Random rnd = new Random();
+            string s;
+            string preFix = "BOO";
+            s = preFix + rnd.Next(10000); ;
+            return s;
+        }
 
     }
 }

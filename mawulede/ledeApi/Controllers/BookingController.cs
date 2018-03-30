@@ -1,8 +1,10 @@
 ﻿using ledeHelpers;
 using ledeModels.Model;
+using ledeModels.ModelResponse;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 
@@ -39,6 +41,38 @@ namespace Mawulede_API.Controllers
             catch (Exception x)
             {
                 return null;
+            }
+        }
+
+
+        [HttpPost]
+        public AjaxResponse SubmitBooking([FromBody]PostBooking newBooking)
+        {
+            try
+            {
+                int prod;
+                var httpRequest = HttpContext.Current.Request;
+                if (!string.IsNullOrEmpty(newBooking.BookingNumber))
+                {
+                    prod = _helper.PostBooking(newBooking);
+                }
+                return new AjaxResponse
+                {
+                    Success = true,
+                    Response = "Transaction successful",
+
+                };
+
+            }
+            catch (Exception x)
+            {
+                //req.CreateResponse(HttpStatusCode.InternalServerError);
+                return new AjaxResponse
+                {
+                    Success = false,
+                    Response = "Request Failed",
+                    ExceptionMessage = x.ToString()
+                };
             }
         }
 

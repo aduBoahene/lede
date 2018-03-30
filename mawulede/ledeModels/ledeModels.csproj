@@ -49,6 +49,8 @@
     <Compile Include="Model\House.cs" />
     <Compile Include="Model\Location.cs" />
     <Compile Include="Model\Movie.cs" />
+    <Compile Include="Model\Payment.cs" />
+    <Compile Include="Model\PostBooking.cs" />
     <Compile Include="Model\PostMovie.cs" />
     <Compile Include="Model\Promotion.cs" />
     <Compile Include="Model\ShowMoment.cs" />

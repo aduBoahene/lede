@@ -15,5 +15,6 @@ namespace ledeModels.Model
         public String Amount { get; set; }
         public String HouseName { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public int HouseId { get; set; }
     }
 }
