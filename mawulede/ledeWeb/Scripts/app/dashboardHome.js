@@ -25,31 +25,32 @@ $(function () {
 
            for (var i = 0; i < Movie.length; i++) {
                outputMovie = outputMovie + "\
-                    <div class='col-md-4 movieClass mag' id= '" + Movie[i].MovieId + "' >\
+                    <div class='col-md-4 movieClass mag' id= '" + Movie[i].MovieId + "'>\
                         <img src="+ Movie[i].PosterUrl + " class='media-object' style='width:70px;height:90px'>\
                     </div>\
-                    <div class='col-md-4 mag movieClass' style='margin-left:-240px'><h3>"+ Movie[i].Title + "</h3><p>" + Movie[i].Synopsis.substring(0, 100) + "</p>\
+                    <div class='col-md-4 mag movieClass' style='margin-left:-140px'>\
+                        <h3>"+ Movie[i].Title + "</h3>\
+                        <p>" + Movie[i].Synopsis.substring(0, 100) + "</p>\
                 </div>";
-
                $("#tab1primary").html(outputMovie);
-           }
+}
 
 
 
 
-           $(".movieClass").click(function () {
+    $(".movieClass").click(function () {
 
-               var hymn = $(this).attr("id");
-               //console.log("tris", hymn);
-               //alert('you clicked me!' + hymn);
+        var hymn = $(this).attr("id");
+        //console.log("tris", hymn);
+        alert('you clicked me!' + hymn);
 
-               window.location = "/Movie/EditMovie/" + hymn;
-           });
+       window.location = "/Movie/Edit/" + hymn;
+    });
 
 
-           for (var i = 0; i < booking.length; i++) {
+        for (var i = 0; i < booking.length; i++) {
 
-               outputBooking = outputBooking + "<tr>\
+            outputBooking = outputBooking + "<tr>\
                     <td>"+ booking[i].BookingNumber + "</a></td>\
                     <td>"+ booking[i].Title + "</td>\
                     <td>"+ booking[i].FullName + "</td>\
@@ -61,12 +62,12 @@ $(function () {
                 </td>\
                 </tr>";
 
-               $("#bookingDetails").html(outputBooking);
-           }
+            $("#bookingDetails").html(outputBooking);
+        }
 
 
-           for (var i = 0; i < Customers.length; i++) {
-               outputCustomers = outputCustomers + " <div class='user-block'>\
+        for (var i = 0; i < Customers.length; i++) {
+            outputCustomers = outputCustomers + " <div class='user-block'>\
                     <img class='img-circle img-bordered-sm' src='Content/images/profile.jpg' />\
                     <span class='username'>\
                         <a href='#'>"+ Customers[i].FullName + "</a>\
@@ -74,52 +75,52 @@ $(function () {
                     <span class='description'>Shared publicly - 7:30 PM today</span>\
                     </div>";
 
-               $("#custDetails").html(outputCustomers);
-           }
-       });
+            $("#custDetails").html(outputCustomers);
+        }
+    });
 
     
-});
+    });
 
 
 
-var booking = {};
-var Customers = {};
-var House = {};
-var Movie = {};
-var House = {};
+        var booking = {};
+        var Customers = {};
+        var House = {};
+        var Movie = {};
+        var House = {};
 
-var bookingAjax = $.ajax({
-    url: basrUrl + "Booking/GetAllBooking?houseId=" + HouseId,
-    type: "Get"
-});
+        var bookingAjax = $.ajax({
+            url: basrUrl + "Booking/GetAllBooking?houseId=" + HouseId,
+            type: "Get"
+        });
 
-var houseAjax = $.ajax({
-    url: basrUrl + "House/GetOneHouseDetails?houseId=" + HouseId,
-    type: "Get"
-});
+        var houseAjax = $.ajax({
+            url: basrUrl + "House/GetOneHouseDetails?houseId=" + HouseId,
+            type: "Get"
+        });
 
-var customerAjax = $.ajax({
-    url: basrUrl + "Customer/GetAllCustomers?houseId=" + HouseId,
-    type: "Get"
-});
+        var customerAjax = $.ajax({
+            url: basrUrl + "Customer/GetAllCustomers?houseId=" + HouseId,
+            type: "Get"
+        });
 
-var houseAjax = $.ajax({
-    url: basrUrl + "House/GetAllHouses?houseId=" + HouseId,
-    type: "Get"
-});
+        var houseAjax = $.ajax({
+            url: basrUrl + "House/GetAllHouses?houseId=" + HouseId,
+            type: "Get"
+        });
 
-var movieAjax = $.ajax({
-    url: basrUrl + "Movie/GetAllMovie?houseId=" + HouseId,//http://localhost:55365/api/Movie/GetAllMovie?houseId=4
-    type: "Get"
-});
+        var movieAjax = $.ajax({
+            url: basrUrl + "Movie/GetAllMovie?houseId=" + HouseId,//http://localhost:55365/api/Movie/GetAllMovie?houseId=4
+            type: "Get"
+        });
 
 
 
-function loadData() {
+        function loadData() {
    
 
-}
+        }
 
     
 

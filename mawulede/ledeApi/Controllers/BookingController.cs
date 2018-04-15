@@ -25,7 +25,7 @@ namespace Mawulede_API.Controllers
         }
 
         [HttpGet]
-        public List<Booking> GetAllBooking(int houseId)
+        public List<Booking> GetAllBooking (int houseId)
         {
             var results = new List<Booking>();
             try

@@ -47,18 +47,6 @@ namespace ledeHelpers
             {
                 int result;
 
-                movie.Title = movie.Title;
-                movie.GenreId = movie.GenreId;
-                movie.Synopsis = movie.Synopsis;
-                movie.PosterUrl = movie.PosterUrl;
-                movie.TrailerUrl = movie.TrailerUrl;
-                movie.Amount = movie.Amount;
-                movie.HouseId = movie.HouseId;
-                movie.ReleaseDate = movie.ReleaseDate;
-                movie.CreatedBy = movie.CreatedBy;
-                movie.CreationDate = movie.CreationDate;
-                movie.UserId = movie.UserId;
-
                 var cmd = new NpgsqlCommand("\"submitmovie\"", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
@@ -83,13 +71,13 @@ namespace ledeHelpers
                 cmd.Parameters.Add(new NpgsqlParameter("reqHouseId", NpgsqlTypes.NpgsqlDbType.Integer));
                 cmd.Parameters[6].Value = movie.HouseId;
 
-                cmd.Parameters.Add(new NpgsqlParameter("reqReleaseDate", NpgsqlTypes.NpgsqlDbType.Date));
+                cmd.Parameters.Add(new NpgsqlParameter("reqReleasedate", NpgsqlTypes.NpgsqlDbType.Timestamp));
                 cmd.Parameters[7].Value = movie.ReleaseDate;
 
                 cmd.Parameters.Add(new NpgsqlParameter("reqCreatedBy", NpgsqlTypes.NpgsqlDbType.Varchar));
                 cmd.Parameters[8].Value = movie.CreatedBy;
 
-                cmd.Parameters.Add(new NpgsqlParameter("reqCreationDate", NpgsqlTypes.NpgsqlDbType.Date));
+                cmd.Parameters.Add(new NpgsqlParameter("reqCreationDate", NpgsqlTypes.NpgsqlDbType.Timestamp));
                 cmd.Parameters[9].Value = movie.CreationDate;
 
                 cmd.Parameters.Add(new NpgsqlParameter("reqUserId", NpgsqlTypes.NpgsqlDbType.Integer));
@@ -323,6 +311,35 @@ namespace ledeHelpers
             }
         }
 
+
+        //get genre
+        public List<Genre> GetAllGenre()
+        {
+            using (var con = new NpgsqlConnection(_Ycon))
+            {
+                var results = new List<Genre>();
+
+                var cmd = new NpgsqlCommand("\"getgenre\"", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //cmd.Parameters.Add(new NpgsqlParameter("reqHouseId", NpgsqlTypes.NpgsqlDbType.Integer));
+                //cmd.Parameters[0].Value = houseId;
+
+                con.Open(); var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    results.Add(new Genre
+                    {
+                        GenreId = reader.GetFieldValue<int>(0),
+                        GenreName = reader.GetFieldValue<string>(1)
+
+                    });
+                }
+                con.Close(); con.Dispose();
+                return results;
+
+            }
+        }
 
         public List<Customer> GetAllCustomers(int houseId)
         {

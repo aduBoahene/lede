@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="col-md-8">
+    <div class="content">
+        <form class="ui form">
+            <h4 class="ui dividing header">Edit Movie</h4>
+            <div class="field">
+
+                <div class="two fields">
+                    <div class="field">
+                        <label>Title</label>
+                        <input type="text" placeholder="First Name" id="title">
+                    </div>
+                    <div class="field">
+                        <label>Genre</label>
+                        <input type="text" placeholder="First Name" id="genre">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui form">
+                    <div class="field">
+                        <label>Synopsis</label>
+                        <textarea id="synopsis"></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+            <h4 class="ui dividing header"><i class="linkify icon"></i> External Links</h4>
+            <div class="field">
+                <label>Poster Url</label>
+                <input type="text" id="posterUrl">
+            </div>
+
+            <div class="field">
+                <label>Trailer Url</label>
+                <input type="text" id="trailerUrl">
+            </div>
+
+            <div class="field">
+
+                <div class="two fields">
+                    <div class="field">
+                        <label>Amount</label>
+                        <input type="text" placeholder="First Name" id="amount">
+                    </div>
+                    <div class="field">
+                        <label>Release Date</label>
+                        <div class="ui calendar" id="example1">
+                            <div class="ui input left icon">
+                                <i class="calendar icon"></i>
+                                <input type="text" placeholder="Date/Time" id="date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="ui button" tabindex="0">Save Movie</div>
+        </form>
+    </div>
+</div>
+
+<div class="col-md-4" style="padding-top:15px;border-left:2px solid #fff;height:40px">
+    <h4 class="ui dividing header">Add Media</h4>
+</div>
+
+<script>
+    var MovieId='@ViewBag.Id';
+</script>
+<script src="~/Scripts/app/movie/edit.js"></script>
+
+
+

@@ -1,12 +1,4 @@
 ﻿var Movie = {};
-//var Amount,
-//var GenreName;
-//var Movieid,
-//var PosterUrl,
-//var ReleaseDate,
-//var Synopsis,
-//var Title,
-//var TrailerUrl 
 
 $(function () {
     getMovieById(HouseId, MovieId);
@@ -19,7 +11,7 @@ function getMovieById(houseId,movieId) {
     $.ajax({
         type: "GET",
         //url: Api_Root + "doc/GetDocById?docId=" + id,
-        url: "http://localhost:55365/api/Movie/GetMovieById?houseId="+houseId+"&MovieId="+movieId,
+        url: "http://localhost:27036/api/Movie/GetMovieById?houseId=" + houseId + "&MovieId=" + movieId,
         success: function (result) {
             console.log(result);
             Movie = result;
@@ -33,16 +25,6 @@ function getMovieById(houseId,movieId) {
             $("#trailerUrl").val(Movie[0].TrailerUrl);
             $("#amount").val(Movie[0].Amount);
             $("#date").val(Movie[0].ReleaseDate);
-
-
-
-
-            
-
-           
-
-
-
 
         }
     });

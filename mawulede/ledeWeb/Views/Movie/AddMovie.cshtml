@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "AddMovie";
+    ViewBag.Title = "AddMovie33";
 }
 
 
@@ -17,7 +17,11 @@
                     </div>
                     <div class="field">
                         <label>Genre</label>
-                        <input type="text" name="shipping[first-name]" placeholder="First Name">
+                        <select class="ui dropdown">
+                            <option value="">Gender</option>
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -73,6 +77,11 @@
 
 <script>
     $('#example1').calendar();
+</script>
+
+<script>
+    alert("drop alert")
+    $('.ui.dropdown').dropdown();
 </script>
 
 
